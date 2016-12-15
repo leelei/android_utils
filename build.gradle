@@ -1,0 +1,28 @@
+// Global gradle configuration. This configuration will be used for all sub-projects.
+/**
+ * Global build script configuration ===============================================================
+ */
+buildscript {
+    repositories {
+        jcenter()
+    }
+    dependencies {
+        classpath 'com.android.tools.build:gradle:2.2.3'
+    }
+}
+
+/**
+ * All projects global configuration ===============================================================
+ */
+allprojects {
+    repositories {
+        jcenter()
+    }
+}
+
+/**
+ * All projects global tasks =======================================================================
+ */
+task clean(type: Delete) {
+    delete rootProject.buildDir
+}
