@@ -18,16 +18,24 @@
  */
 package universum.studios.android.util;
 
-import junit.framework.TestCase;
+import android.support.test.runner.AndroidJUnit4;
+
+import org.junit.Test;
+import org.junit.runner.RunWith;
+
+import static org.hamcrest.CoreMatchers.is;
+import static org.hamcrest.MatcherAssert.assertThat;
 
 /**
  * @author Martin Albedinsky
  */
-public final class LoggerTest extends TestCase {
+@RunWith(AndroidJUnit4.class)
+public final class LoggerTest {
 
 	@SuppressWarnings("unused")
 	private static final String TAG = "LoggerTest";
 
+	@Test
 	public void testReset() {
 		// Default enabled logs: DEBUG | INFO | WARN | ERROR
 		Logger.reset();
@@ -39,6 +47,7 @@ public final class LoggerTest extends TestCase {
 		assertLogDisabled(Logger.WTF);
 	}
 
+	@Test
 	public void testEnable() {
 		Logger.disableAll();
 		testEnableLog(Logger.VERBOSE);
@@ -54,6 +63,7 @@ public final class LoggerTest extends TestCase {
 		assertLogEnabled(log);
 	}
 
+	@Test
 	public void testDisable() {
 		Logger.enableAll();
 		testDisableLog(Logger.VERBOSE);
@@ -69,16 +79,19 @@ public final class LoggerTest extends TestCase {
 		assertLogDisabled(log);
 	}
 
+	@Test
 	public void testEnableAll() {
 		Logger.enableAll();
 		assertLogEnabled(Logger.VERBOSE | Logger.DEBUG | Logger.INFO | Logger.WARN | Logger.ERROR | Logger.WTF);
 	}
 
+	@Test
 	public void testDisableAll() {
 		Logger.disableAll();
 		assertLogDisabled(Logger.VERBOSE | Logger.DEBUG | Logger.INFO | Logger.WARN | Logger.ERROR | Logger.WTF);
 	}
 
+	@Test
 	public void testSwitchToDebugMode() {
 		// Debug mode enabled logs: VERBOSE | DEBUG | INFO | WARN | ERROR
 		Logger.switchToDebugMode();
@@ -86,6 +99,7 @@ public final class LoggerTest extends TestCase {
 		assertLogDisabled(Logger.WTF);
 	}
 
+	@Test
 	public void testSwitchToReleaseMode() {
 		// Release mode enabled logs: INFO | WARN | ERROR
 		Logger.switchToReleaseMode();
@@ -94,10 +108,10 @@ public final class LoggerTest extends TestCase {
 	}
 
 	private static void assertLogEnabled(int log) {
-		assertTrue(Logger.isEnabled(log));
+		assertThat(Logger.isEnabled(log), is(true));
 	}
 
 	private static void assertLogDisabled(int log) {
-		assertFalse(Logger.isEnabled(log));
+		assertThat(Logger.isEnabled(log), is(false));
 	}
 }

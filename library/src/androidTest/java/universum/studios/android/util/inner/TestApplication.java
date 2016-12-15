@@ -29,10 +29,10 @@ import universum.studios.android.util.Localer;
 /**
  * @author Martin Albedinsky
  */
-public final class TestLocalerApplication extends Application {
+public final class TestApplication extends Application {
 
 	@SuppressWarnings("unused")
-	private static final String TAG = "TestLocalerApplication";
+	private static final String TAG = "TestApplication";
 
 	private final Localer LOCALER = new Localer(Locale.US);
 

@@ -19,17 +19,25 @@
 package universum.studios.android.util;
 
 import android.content.res.Resources;
-import android.test.ApplicationTestCase;
+import android.support.test.runner.AndroidJUnit4;
+
+import org.junit.Test;
+import org.junit.runner.RunWith;
 
 import java.util.Locale;
 
+import universum.studios.android.util.inner.ContextBaseTest;
+import universum.studios.android.util.inner.TestApplication;
 import universum.studios.android.util.test.R;
-import universum.studios.android.util.inner.TestLocalerApplication;
+
+import static org.hamcrest.CoreMatchers.is;
+import static org.hamcrest.MatcherAssert.assertThat;
 
 /**
  * @author Martin Albedinsky
  */
-public final class LocalerTest extends ApplicationTestCase<TestLocalerApplication> {
+@RunWith(AndroidJUnit4.class)
+public final class LocalerTest extends ContextBaseTest {
 
 	@SuppressWarnings("unused")
 	private static final String TAG = "LocalerTest";
@@ -39,72 +47,62 @@ public final class LocalerTest extends ApplicationTestCase<TestLocalerApplicatio
 
 	private static final Locale LOCALE_SLOVAK = new Locale("sk");
 
-	private TestLocalerApplication mApplication;
+	private TestApplication mApplication;
 	private Resources mResources;
 
-	public LocalerTest() {
-		super(TestLocalerApplication.class);
-	}
-
-	public void testInstantiation() {
-		Localer localer = new Localer();
-		assertEquals(Locale.ENGLISH, localer.getLocale());
-
-		localer = new Localer(Locale.FRENCH);
-		assertEquals(Locale.FRENCH, localer.getLocale());
-	}
-
 	@Override
-	protected void setUp() throws Exception {
-		super.setUp();
-		createApplication();
-		this.mApplication = getApplication();
+	public void beforeTest() throws Exception {
+		super.beforeTest();
+		this.mApplication = (TestApplication) mContext.getApplicationContext();
 		this.mResources = mApplication.getResources();
 	}
 
-	public void testLocalizedText() {
-		assertEquals("Hello Localer test!", mResources.getString(LOCALIZED_TEXT_RES));
-
-		// Change locale to SLOVAK.
-		mApplication.changeLocale(LOCALE_SLOVAK);
-		assertEquals("Ahoj Localer test!", mResources.getString(LOCALIZED_TEXT_RES));
-
-		// Change locale to GERMAN.
-		mApplication.changeLocale(Locale.GERMAN);
-		assertEquals("Hallo Localer Test!", mResources.getString(LOCALIZED_TEXT_RES));
-
-		// Change locale to FRENCH.
-		mApplication.changeLocale(Locale.FRENCH);
-		assertEquals("Bonjour Localer essai!", mResources.getString(LOCALIZED_TEXT_RES));
+	@Test
+	public void testInstantiation() {
+		assertThat(new Localer().getLocale(), is(Locale.ENGLISH));
+		assertThat(new Localer(Locale.FRENCH).getLocale(), is(Locale.FRENCH));
 	}
 
-	public void testLocalizedPlurals() {
-		assertEquals("0 items", mResources.getQuantityString(LOCALIZED_PLURAL_RES, 0, 0));
-		assertEquals("one item", mResources.getQuantityString(LOCALIZED_PLURAL_RES, 1, 1));
-		assertEquals("2 items", mResources.getQuantityString(LOCALIZED_PLURAL_RES, 2, 2));
-		assertEquals("100 items", mResources.getQuantityString(LOCALIZED_PLURAL_RES, 100, 100));
+	@Test
+	public void testLocalizedText() {
+		mApplication.changeLocale(Locale.ENGLISH);
+		assertThat(mResources.getString(LOCALIZED_TEXT_RES), is("Hello Localer test!"));
 
-		// Change locale to SLOVAK.
 		mApplication.changeLocale(LOCALE_SLOVAK);
-		assertEquals("0 položiek", mResources.getQuantityString(LOCALIZED_PLURAL_RES, 0, 0));
-		assertEquals("jedna položka", mResources.getQuantityString(LOCALIZED_PLURAL_RES, 1, 1));
-		assertEquals("2 položky", mResources.getQuantityString(LOCALIZED_PLURAL_RES, 2, 2));
-		assertEquals("3 položky", mResources.getQuantityString(LOCALIZED_PLURAL_RES, 3, 3));
-		assertEquals("4 položky", mResources.getQuantityString(LOCALIZED_PLURAL_RES, 4, 4));
-		assertEquals("5 položiek", mResources.getQuantityString(LOCALIZED_PLURAL_RES, 5, 5));
-		assertEquals("100 položiek", mResources.getQuantityString(LOCALIZED_PLURAL_RES, 100, 100));
+		assertThat(mResources.getString(LOCALIZED_TEXT_RES), is("Ahoj Localer test!"));
 
-		// Change locale to GERMAN.
 		mApplication.changeLocale(Locale.GERMAN);
-		assertEquals("ein Einzelteil", mResources.getQuantityString(LOCALIZED_PLURAL_RES, 1, 1));
-		assertEquals("2 Gegenstände", mResources.getQuantityString(LOCALIZED_PLURAL_RES, 2, 2));
-		assertEquals("3 Gegenstände", mResources.getQuantityString(LOCALIZED_PLURAL_RES, 3, 3));
+		assertThat(mResources.getString(LOCALIZED_TEXT_RES), is("Hallo Localer Test!"));
 
-		// Change locale to FRENCH.
 		mApplication.changeLocale(Locale.FRENCH);
-		assertEquals("0 article", mResources.getQuantityString(LOCALIZED_PLURAL_RES, 0, 0));
-		assertEquals("1 article", mResources.getQuantityString(LOCALIZED_PLURAL_RES, 1, 1));
-		assertEquals("2 articles", mResources.getQuantityString(LOCALIZED_PLURAL_RES, 2, 2));
-		assertEquals("100 articles", mResources.getQuantityString(LOCALIZED_PLURAL_RES, 100, 100));
+		assertThat(mResources.getString(LOCALIZED_TEXT_RES), is("Bonjour Localer essai!"));
+	}
+
+	@Test
+	public void testLocalizedPlurals() {
+		mApplication.changeLocale(Locale.ENGLISH);
+		assertThat(mResources.getQuantityString(LOCALIZED_PLURAL_RES, 0, 0), is("0 items"));
+		assertThat(mResources.getQuantityString(LOCALIZED_PLURAL_RES, 1, 1), is("one item"));
+		assertThat(mResources.getQuantityString(LOCALIZED_PLURAL_RES, 2, 2), is("2 items"));
+		assertThat(mResources.getQuantityString(LOCALIZED_PLURAL_RES, 100, 100), is("100 items"));
+
+		mApplication.changeLocale(LOCALE_SLOVAK);
+		assertThat(mResources.getQuantityString(LOCALIZED_PLURAL_RES, 0, 0), is("0 položiek"));
+		assertThat(mResources.getQuantityString(LOCALIZED_PLURAL_RES, 1, 1), is("jedna položka"));
+		assertThat(mResources.getQuantityString(LOCALIZED_PLURAL_RES, 2, 2), is("2 položky"));
+		assertThat(mResources.getQuantityString(LOCALIZED_PLURAL_RES, 5, 5), is("5 položiek"));
+		assertThat(mResources.getQuantityString(LOCALIZED_PLURAL_RES, 100, 100), is("100 položiek"));
+
+		mApplication.changeLocale(Locale.GERMAN);
+		assertThat(mResources.getQuantityString(LOCALIZED_PLURAL_RES, 1, 1), is("ein Einzelteil"));
+		assertThat(mResources.getQuantityString(LOCALIZED_PLURAL_RES, 2, 2), is("2 Gegenstände"));
+		assertThat(mResources.getQuantityString(LOCALIZED_PLURAL_RES, 3, 3), is("3 Gegenstände"));
+		assertThat(mResources.getQuantityString(LOCALIZED_PLURAL_RES, 100, 100), is("100 Gegenstände"));
+
+		mApplication.changeLocale(Locale.FRENCH);
+		assertThat(mResources.getQuantityString(LOCALIZED_PLURAL_RES, 0, 0), is("0 article"));
+		assertThat(mResources.getQuantityString(LOCALIZED_PLURAL_RES, 1, 1), is("1 article"));
+		assertThat(mResources.getQuantityString(LOCALIZED_PLURAL_RES, 2, 2), is("2 articles"));
+		assertThat(mResources.getQuantityString(LOCALIZED_PLURAL_RES, 100, 100), is("100 articles"));
 	}
 }

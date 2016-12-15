@@ -18,18 +18,18 @@
  */
 package universum.studios.android.util;
 
-import android.app.Instrumentation;
 import android.support.test.InstrumentationRegistry;
+import android.support.test.rule.ActivityTestRule;
 import android.support.test.runner.AndroidJUnit4;
-import android.test.ActivityInstrumentationTestCase2;
 import android.widget.Toast;
 
-import org.junit.Before;
+import org.junit.Rule;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 
-import universum.studios.android.util.test.R;
+import universum.studios.android.util.inner.BaseTest;
 import universum.studios.android.util.inner.TestActivity;
+import universum.studios.android.util.test.R;
 
 import static android.support.test.espresso.Espresso.onView;
 import static android.support.test.espresso.assertion.ViewAssertions.matches;
@@ -42,26 +42,22 @@ import static org.hamcrest.core.IsNot.not;
  * @author Martin Albedinsky
  */
 @RunWith(AndroidJUnit4.class)
-public final class ToasterTest extends ActivityInstrumentationTestCase2<TestActivity> {
+public final class ToasterTest extends BaseTest {
 
 	@SuppressWarnings("unused")
 	private static final String TAG = "ToasterTest";
 
 	private static final String TOAST_TEXT = "Text within toast";
 
-	private Instrumentation mInstrumentation;
-	TestActivity mActivity;
+	@Rule
+	public final ActivityTestRule<TestActivity> ACTIVITY_TEST_RULE = new ActivityTestRule<>(TestActivity.class);
 
-	public ToasterTest() {
-		super(TestActivity.class);
-	}
+	private TestActivity mActivity;
 
-	@Before
-	public void setUp() throws Exception {
-		super.setUp();
-		injectInstrumentation(InstrumentationRegistry.getInstrumentation());
-		this.mInstrumentation = getInstrumentation();
-		this.mActivity = getActivity();
+	@Override
+	public void beforeTest() throws Exception {
+		super.beforeTest();
+		this.mActivity = ACTIVITY_TEST_RULE.getActivity();
 	}
 
 	@Test
@@ -126,7 +122,7 @@ public final class ToasterTest extends ActivityInstrumentationTestCase2<TestActi
 			e.printStackTrace();
 		}
 		mActivity.runOnUiThread(toastRunnable);
-		mInstrumentation.waitForIdleSync();
+		InstrumentationRegistry.getInstrumentation().waitForIdleSync();
 		assertToastIsDisplayedWithText(text);
 	}
 

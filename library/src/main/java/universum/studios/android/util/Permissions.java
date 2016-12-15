@@ -19,10 +19,8 @@
 package universum.studios.android.util;
 
 import android.Manifest;
-import android.annotation.TargetApi;
 import android.content.Context;
 import android.content.pm.PackageManager;
-import android.os.Build;
 import android.os.Process;
 import android.support.annotation.CheckResult;
 import android.support.annotation.NonNull;
@@ -85,7 +83,6 @@ public final class Permissions {
 	 * @see Manifest.permission
 	 */
 	@CheckResult
-	@TargetApi(Build.VERSION_CODES.BASE_1_1)
 	public static boolean has(@NonNull Context context, @NonNull String permission) {
 		return context.checkPermission(permission, Process.myPid(), Process.myUid()) == PackageManager.PERMISSION_GRANTED;
 	}

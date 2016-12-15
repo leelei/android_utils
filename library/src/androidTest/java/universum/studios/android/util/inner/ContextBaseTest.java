@@ -1,11 +1,9 @@
-<?xml version="1.0" encoding="utf-8"?>
-<!--
 /*
  * =================================================================================================
  *                             Copyright (C) 2016 Universum Studios
  * =================================================================================================
  *         Licensed under the Apache License, Version 2.0 or later (further "License" only).
- * *************************************************************************************************
+ * -------------------------------------------------------------------------------------------------
  * You may use this file only in compliance with the License. More details and copy of this License
  * you may obtain at
  *
@@ -18,13 +16,23 @@
  * See the License for the specific language governing permissions and limitations under the License.
  * =================================================================================================
  */
--->
-<manifest xmlns:android="http://schemas.android.com/apk/res/android"
-          package="universum.studios.android.util">
+package universum.studios.android.util.inner;
 
-    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+import android.content.Context;
+import android.support.test.InstrumentationRegistry;
 
-    <application android:name=".inner.TestApplication">
-        <activity android:name=".inner.TestActivity" />
-    </application>
-</manifest>
+/**
+ * @author Martin Albedinsky
+ */
+public abstract class ContextBaseTest extends BaseTest {
+
+	@SuppressWarnings("unused")
+	private static final String TAG = "ContextBaseTest";
+
+	protected Context mContext;
+
+	@Override
+	public void beforeTest() throws Exception {
+		this.mContext = InstrumentationRegistry.getTargetContext();
+	}
+}

@@ -18,48 +18,57 @@
  */
 package universum.studios.android.util;
 
-import junit.framework.TestCase;
+import android.support.test.runner.AndroidJUnit4;
+
+import org.junit.Test;
+import org.junit.runner.RunWith;
+
+import universum.studios.android.util.inner.BaseTest;
+
+import static org.hamcrest.CoreMatchers.is;
+import static org.hamcrest.MatcherAssert.assertThat;
 
 /**
  * @author Martin Albedinsky
  */
-public final class FlagsTest extends TestCase {
+@RunWith(AndroidJUnit4.class)
+public final class FlagsTest extends BaseTest {
 
 	@SuppressWarnings("unused")
 	private static final String TAG = "FlagsTest";
 
-	private Flags mFlags;
-
-	@Override
-	public void setUp() throws Exception {
-		super.setUp();
-		this.mFlags = new Flags();
-	}
-
+	@Test
 	public void testInstantiation() {
-		final Flags flags = new Flags();
-		assertEquals(0, flags.get());
+		assertThat(new Flags().get(), is(0x00000000));
 	}
 
+	@Test
 	public void testInstantiationWithInitialValue() {
-		final Flags flags = new Flags(6);
-		assertEquals(6, flags.get());
+		assertThat(new Flags(0x00000001 << 2).get(), is(0x00000001 << 2));
 	}
 
-	public void testHas() {
-		assertFalse(mFlags.has(2));
+	@Test
+	public void testHasWithInitialValue() {
+		assertThat(new Flags(0x00000001 << 2).has(0x00000001 << 1), is(false));
+		assertThat(new Flags(0x00000001 << 2).has(0x00000001 << 2), is(true));
 	}
 
+	@Test
 	public void testHasWithAdd() {
-		mFlags.add(2);
-		assertTrue(mFlags.has(2));
+		final Flags flags = new Flags();
+		flags.add(0x00000001 << 2);
+		assertThat(flags.has(0x00000001 << 2), is(true));
 	}
 
+	@Test
 	public void testHasWithRemove() {
-		mFlags.add(2);
-		mFlags.add(4);
-		assertTrue(mFlags.has(4));
-		mFlags.remove(2);
-		assertTrue(mFlags.has(4));
+		final Flags flags = new Flags();
+		flags.add(0x00000001 << 2);
+		flags.add(0x00000001 << 4);
+		assertThat(flags.has(0x00000001 << 2), is(true));
+		assertThat(flags.has(0x00000001 << 4), is(true));
+		flags.remove(0x00000001 << 2);
+		assertThat(flags.has(0x00000001 << 2), is(false));
+		assertThat(flags.has(0x00000001 << 4), is(true));
 	}
 }
