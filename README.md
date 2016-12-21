@@ -7,7 +7,7 @@ Download the latest **[release](https://github.com/universum-studios/android_uti
 
 ### Gradle ###
 
-> `compile 'universum.studios.android:utils:1.0.0@aar'`
+    compile 'universum.studios.android:utils:1.0.0@aar'
 
 ## Compatibility ##
 
