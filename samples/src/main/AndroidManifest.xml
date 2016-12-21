@@ -1,4 +1,5 @@
-<?xml version="1.0" encoding="utf-8"?><!--
+<?xml version="1.0" encoding="utf-8"?>
+<!--
 /*
  * =================================================================================================
  *                             Copyright (C) 2016 Universum Studios
@@ -18,7 +19,7 @@
  * =================================================================================================
  */
 -->
-<manifest package="universum.studios.samples.utils"
+<manifest package="universum.studios.samples.util"
 		  xmlns:android="http://schemas.android.com/apk/res/android">
 
 	<application

@@ -16,4 +16,7 @@
  * See the License for the specific language governing permissions and limitations under the License.
  * =================================================================================================
  */
-package universum.studios.samples.utils;
+/**
+ * @author Martin Albedinsky
+ */
+package universum.studios.samples.util;

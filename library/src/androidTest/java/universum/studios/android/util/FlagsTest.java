@@ -31,7 +31,7 @@ import static org.hamcrest.MatcherAssert.assertThat;
 /**
  * @author Martin Albedinsky
  */
-@RunWith(AndroidJUnit4.class)
+	@RunWith(AndroidJUnit4.class)
 public final class FlagsTest extends BaseTest {
 
 	@SuppressWarnings("unused")
