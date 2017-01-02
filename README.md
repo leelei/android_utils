@@ -15,7 +15,7 @@ Supported from the **Android [API Level 8](http://developer.android.com/about/ve
 
 ### Dependencies ###
 
-- [`com.android.support:support-annotations`](http://developer.android.com/tools/support-library/features.html#annotations)
+- [`com.android.support:support-annotations`](https://developer.android.com/topic/libraries/support-library/packages.html#annotations)
 
 ## License ##
 
