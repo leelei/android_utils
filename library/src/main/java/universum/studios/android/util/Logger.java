@@ -316,7 +316,7 @@ public class Logger {
 	 * <p>
 	 * Message will be outputted only, if the {@link #WARN} flag is set.
 	 */
-	public static void w(@NonNull String tag, @NonNull String msg, @NonNull Throwable tr) {
+	public static void w(@NonNull String tag, @NonNull String msg, @Nullable Throwable tr) {
 		if ((sEnabledLogs & WARN) != 0) Log.w(tag, msg, tr);
 	}
 
