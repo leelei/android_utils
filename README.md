@@ -3,11 +3,11 @@ Android Utils
 
 ## Download ##
 
-Download the latest **[release](https://github.com/universum-studios/android_utils/releases/tag/1.0.1 "Latest Releases page")** or **add as dependency** in your project via:
+Download the latest **[release](https://github.com/universum-studios/android_utils/releases/tag/2.0.0 "Latest Releases page")** or **add as dependency** in your project via:
 
 ### Gradle ###
 
-    compile 'universum.studios.android:utils:1.0.1@aar'
+    compile 'universum.studios.android:utils:2.0.0@aar'
 
 ## Compatibility ##
 

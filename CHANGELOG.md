@@ -1,6 +1,11 @@
 Change-Log
 ===============
 
+### Release 2.0.0 ###
+> 15.01.2017
+
+- Refactored and changed `Logger` into interface and added `SimpleLogger` implementation.
+
 ### Release 1.0.1 ###
 > 13.01.2017
 
