@@ -71,6 +71,12 @@ public class Toaster {
 	 */
 
 	/**
+	 */
+	private Toaster() {
+		// Creation of instances of this class is not publicly allowed.
+	}
+
+	/**
 	 * Methods =====================================================================================
 	 */
 
@@ -145,9 +151,13 @@ public class Toaster {
 	 */
 	private static void showToastInner(Context context, CharSequence text, int duration) {
 		switch (duration) {
-			case Toast.LENGTH_SHORT:
 			case Toast.LENGTH_LONG:
-				Toast.makeText(context, text, duration).show();
+				Toast.makeText(context, text, Toast.LENGTH_LONG).show();
+				break;
+			case Toast.LENGTH_SHORT:
+			default:
+				Toast.makeText(context, text, Toast.LENGTH_SHORT).show();
+				break;
 		}
 	}
 

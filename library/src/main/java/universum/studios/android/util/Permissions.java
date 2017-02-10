@@ -36,6 +36,12 @@ import android.support.annotation.Size;
 public final class Permissions {
 
 	/**
+	 */
+	private Permissions() {
+		// Creation of instances of this class is not publicly allowed.
+	}
+
+	/**
 	 * Checks whether any of the specified <var>permissions</var> is granted for the current process
 	 * and user id.
 	 *
@@ -48,7 +54,7 @@ public final class Permissions {
 	 */
 	@CheckResult
 	public static boolean hasAnyOf(@NonNull Context context, @NonNull @Size(min = 1) String... permissions) {
-		for (String permission : permissions) {
+		for (final String permission : permissions) {
 			if (has(context, permission)) return true;
 		}
 		return false;
@@ -66,7 +72,7 @@ public final class Permissions {
 	 */
 	@CheckResult
 	public static boolean hasAllOf(@NonNull Context context, @NonNull @Size(min = 1) String... permissions) {
-		for (String permission : permissions) {
+		for (final String permission : permissions) {
 			if (!has(context, permission)) return false;
 		}
 		return true;
