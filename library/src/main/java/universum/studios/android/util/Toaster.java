@@ -34,7 +34,7 @@ import java.lang.annotation.RetentionPolicy;
  *
  * @author Martin Albedinsky
  */
-public class Toaster {
+public final class Toaster {
 
 	/**
 	 * Interface ===================================================================================

@@ -1,6 +1,12 @@
 Change-Log
 ===============
 
+### Release 2.0.1 ###
+> --.02.2017
+
+- `Toaster` class has been made final with a private constructor as it is a utility class.
+- `Permissions` class has been made final with a private constructor as it is a utility class.
+
 ### Release 2.0.0 ###
 > 15.01.2017
 
