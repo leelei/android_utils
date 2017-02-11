@@ -1,6 +1,9 @@
 Utils
 ===============
 
+[![Codacy Badge](https://api.codacy.com/project/badge/Grade/2eee79dd3bdd42f5af758d1ac3e363be)](https://www.codacy.com/app/universum-studios/android_utils?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=universum-studios/android_utils&amp;utm_campaign=Badge_Grade)
+[![Codacy Badge](https://api.codacy.com/project/badge/Coverage/2eee79dd3bdd42f5af758d1ac3e363be)](https://www.codacy.com/app/universum-studios/android_utils?utm_source=github.com&utm_medium=referral&utm_content=universum-studios/android_utils&utm_campaign=Badge_Coverage)
+
 ## Download ##
 
 Download the latest **[release](https://github.com/universum-studios/android_utils/releases/tag/2.0.0 "Latest Releases page")** or **add as dependency** in your project via:
