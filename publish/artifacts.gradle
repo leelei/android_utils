@@ -29,9 +29,9 @@ task classesJar(type: Jar) {
  */
 task generateJavadoc(type: Javadoc) {
     source android.sourceSets.main.java.sourceFiles
-    def Properties properties = new Properties()
+    final Properties properties = new Properties()
     properties.load(project.rootProject.file('local.properties').newDataInputStream())
-    def String sdkDir = properties.getProperty('sdk.dir')
+    final String sdkDir = properties.getProperty('sdk.dir')
     options {
         author = true
         memberLevel = JavadocMemberLevel.PROTECTED
@@ -44,10 +44,9 @@ task generateJavadoc(type: Javadoc) {
         //options.addStringOption('Xdoclint:none', '-quiet')
     }
     // Append class path with dependencies.
-    def String supportVersion = project.property('android.support.version')
     classpath += files(
             android.getBootClasspath(),
-            sdkDir + '\\extras\\android\\m2repository\\com\\android\\support\\support-annotations\\' + supportVersion + '\\support-annotations-' + supportVersion + '.jar'
+            sdkDir + "\\extras\\android\\m2repository\\com\\android\\support\\support-annotations\\${androidSupportVersion}\\support-annotations-${androidSupportVersion}.jar"
     )
     failOnError false
 }
