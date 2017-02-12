@@ -31,20 +31,24 @@ dependencies {
  * Task that uploads code coverage up to the Codacy cloud.
  */
 task uploadCoverageToCodacy(type: JavaExec) {
+    final String token
     final File tokensFile = file(project.property('codacy.tokens'))
     if (tokensFile.exists()) {
         def Properties tokens = new Properties();
         tokens.load(new FileInputStream(tokensFile))
-        main = "com.codacy.CodacyCoverageReporter"
-        classpath = configurations.codacy
-        args = [
-                "-l",
-                "Java",
-                "-r",
-                "${buildDir}/reports/coverage/debug/report.xml",
-                "--projectToken",
-                tokens[project.property('codacy.project')]
-        ]
-        dependsOn 'createDebugCoverageReport'
+        token = tokens[project.property('codacy.project')]
+    } else {
+        token = System.getenv('CODACY_PROJECT_TOKEN')
     }
+    main = "com.codacy.CodacyCoverageReporter"
+    classpath = configurations.codacy
+    args = [
+            "-l",
+            "Java",
+            "-r",
+            "${buildDir}/reports/coverage/debug/report.xml",
+            "--projectToken",
+            token
+    ]
+    dependsOn 'createDebugCoverageReport'
 }
