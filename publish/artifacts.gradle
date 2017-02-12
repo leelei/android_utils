@@ -35,8 +35,6 @@ task generateJavadoc(type: Javadoc) {
         final Properties properties = new Properties()
         properties.load(project.rootProject.file('local.properties').newDataInputStream())
         sdkDir = properties.getProperty('sdk.dir')
-    } else {
-        sdkDir = "${HOME}/android-sdk"
     }
     options {
         author = true
