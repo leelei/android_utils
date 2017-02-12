@@ -7,7 +7,7 @@ Utils
 ## Download ##
 [![Bintray Badge](https://api.bintray.com/packages/universum-studios/android/universum.studios.android%3Autils/images/download.svg)](https://bintray.com/universum-studios/android/universum.studios.android%3Autils/_latestVersion)
 
-Download the latest **[release](https://github.com/universum-studios/android_utils/releases/tag/2.0.0 "Latest Releases page")** or **add as dependency** in your project via:
+Download the latest **[release](https://github.com/universum-studios/android_utils/releases "Latest Releases page")** or **add as dependency** in your project via:
 
 ### Gradle ###
 
