@@ -41,8 +41,8 @@ public class Permissions {
 	 */
 	protected Permissions() {
 		// We allow to override this class only so it may be used as container for permission
-		// declarations that are requested across an Android application along with their associated
-		// request codes.
+		// declarations that are requested across an Android application along with theirs
+		// associated request codes.
 	}
 
 	/**

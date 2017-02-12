@@ -29,9 +29,15 @@ task classesJar(type: Jar) {
  */
 task generateJavadoc(type: Javadoc) {
     source android.sourceSets.main.java.sourceFiles
-    final Properties properties = new Properties()
-    properties.load(project.rootProject.file('local.properties').newDataInputStream())
-    final String sdkDir = properties.getProperty('sdk.dir')
+    String sdkDir = ''
+    final File localPropertiesFile = project.rootProject.file('local.properties')
+    if (localPropertiesFile.exists()) {
+        final Properties properties = new Properties()
+        properties.load(project.rootProject.file('local.properties').newDataInputStream())
+        sdkDir = properties.getProperty('sdk.dir')
+    } else {
+        sdkDir = "${TRAVIS_BUILD_DIR}/android-sdk"
+    }
     options {
         author = true
         memberLevel = JavadocMemberLevel.PROTECTED
