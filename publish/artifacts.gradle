@@ -36,7 +36,7 @@ task generateJavadoc(type: Javadoc) {
         properties.load(project.rootProject.file('local.properties').newDataInputStream())
         sdkDir = properties.getProperty('sdk.dir')
     } else {
-        sdkDir = "${TRAVIS_BUILD_DIR}/android-sdk"
+        sdkDir = "${HOME}/android-sdk"
     }
     options {
         author = true
