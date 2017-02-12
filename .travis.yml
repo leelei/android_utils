@@ -39,7 +39,7 @@ after_success:
 
 # Notications
 notifications:
- email: false
+  email: false
 
 # Cache configuraiton
 cache:
