@@ -33,12 +33,16 @@ import android.support.annotation.Size;
  *
  * @author Martin Albedinsky
  */
-public final class Permissions {
+public class Permissions {
 
 	/**
+	 * Creates a new empty instance of Permissions. Inheritance hierarchies should declare theirs
+	 * constructors private in order to became a standard utility classes.
 	 */
-	private Permissions() {
-		// Creation of instances of this class is not publicly allowed.
+	protected Permissions() {
+		// We allow to override this class only so it may be used as container for permission
+		// declarations that are requested across an Android application along with their associated
+		// request codes.
 	}
 
 	/**
