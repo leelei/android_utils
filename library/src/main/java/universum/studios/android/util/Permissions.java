@@ -33,7 +33,7 @@ import android.support.annotation.Size;
  *
  * @author Martin Albedinsky
  */
-public class Permissions {
+public abstract class Permissions {
 
 	/**
 	 * Creates a new empty instance of Permissions. Inheritance hierarchies should declare theirs
