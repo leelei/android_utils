@@ -32,8 +32,8 @@ script:
   - ./ci/tests.sh
 
 after_success:
-  # - ./ci/coverage.sh
-  # - ./ci/deploy.sh
+  - ./ci/coverage.sh
+  - ./ci/deploy.sh
 
 # Notications
 notifications:
