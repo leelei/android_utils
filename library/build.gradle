@@ -80,8 +80,8 @@ dependencies {
     testCompile testDependencies.mockitoCore
 }
 
-// Apply PUBLISH script.
-apply from: '../publish/publish.gradle'
+// Apply DEPLOY script.
+apply from: '../deploy/deploy.gradle'
 
 // Apply CODACY script.
 apply from: 'codacy.gradle'

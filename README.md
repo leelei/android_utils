@@ -16,7 +16,7 @@ Download the latest **[release](https://github.com/universum-studios/android_uti
 
 ## Compatibility ##
 
-Supported from the **Android [API Level 8](http://developer.android.com/about/versions/android-2.2.html "See API highlights")**.
+Supported down to the **Android [API Level 8](http://developer.android.com/about/versions/android-2.2.html "See API highlights")**.
 
 ### Dependencies ###
 

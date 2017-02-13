@@ -1,4 +1,4 @@
 #!/usr/bin/env bash
 
-# EXECUTE GRADLE PUBLISH TASK (see master branch)
-./gradlew :library:bintrayUpload
+# Execute Bintray deploy task (see master branch)
+# ./gradlew deployToBintray
