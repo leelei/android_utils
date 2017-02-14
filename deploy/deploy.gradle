@@ -19,8 +19,8 @@
 // Add ARTIFACTS tasks.
 apply from: '../deploy/artifacts.gradle'
 
-// Apply MAVEN deploy script.
+// Apply MAVEN deployment script.
 apply from: '../deploy/maven.gradle'
 
-// Apply BINTRAY deploy script.
+// Apply BINTRAY deployment script.
 apply from: '../deploy/bintray.gradle'
