@@ -35,6 +35,24 @@ task clean(type: Delete) {
 }
 
 /**
+ * Task that cleans local artifacts directory.
+ */
+task cleanLocalArtifacts() {
+    // delete 'artifacts/universum/studios/android'
+}
+
+/**
+ * Task that updates local artifacts directory.
+ */
+task updateLocalArtifacts() {
+    subprojects.findAll {
+        if (it.name.startsWith("library")) {
+            dependsOn ':' + it.name + ':updateLocalArtifacts'
+        }
+    }
+}
+
+/**
  * Task that deploys (uploads) all library modules into Maven local repository.
  */
 task deployToMavenLocal() {
