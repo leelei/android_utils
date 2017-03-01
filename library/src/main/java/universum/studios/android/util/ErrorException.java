@@ -35,18 +35,17 @@ import android.support.annotation.Nullable;
 public class ErrorException extends RuntimeException {
 
 	/**
-	 * Interface ===================================================================================
-	 */
-
-	/**
 	 * Constants ===================================================================================
 	 */
 
 	/**
 	 * Log TAG.
 	 */
-	@SuppressWarnings("unused")
 	// private static final String TAG = "ErrorException";
+
+	/**
+	 * Interface ===================================================================================
+	 */
 
 	/**
 	 * Static members ==============================================================================
