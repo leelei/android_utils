@@ -32,10 +32,6 @@ import android.util.Log;
 public class SimpleLogger implements Logger {
 
 	/**
-	 * Interface ===================================================================================
-	 */
-
-	/**
 	 * Constants ===================================================================================
 	 */
 
@@ -43,6 +39,10 @@ public class SimpleLogger implements Logger {
 	 * Flag indicating whether the WTF logging is supported by the current Android version or not.
 	 */
 	private static final boolean WTF_SUPPORTED = Build.VERSION.SDK_INT >= Build.VERSION_CODES.FROYO;
+
+	/**
+	 * Interface ===================================================================================
+	 */
 
 	/**
 	 * Static members ==============================================================================

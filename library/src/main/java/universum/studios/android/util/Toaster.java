@@ -37,10 +37,6 @@ import java.lang.annotation.RetentionPolicy;
 public final class Toaster {
 
 	/**
-	 * Interface ===================================================================================
-	 */
-
-	/**
 	 * Constants ===================================================================================
 	 */
 
@@ -53,10 +49,14 @@ public final class Toaster {
 	 * Defines an annotation for determining set of allowed durations for {@code showToast(...)}
 	 * methods.
 	 */
-	@Retention(RetentionPolicy.SOURCE)
 	@IntDef({Toast.LENGTH_SHORT, Toast.LENGTH_LONG})
+	@Retention(RetentionPolicy.SOURCE)
 	public @interface Duration {
 	}
+
+	/**
+	 * Interface ===================================================================================
+	 */
 
 	/**
 	 * Static members ==============================================================================
