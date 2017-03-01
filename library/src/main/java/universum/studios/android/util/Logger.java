@@ -45,7 +45,8 @@ public interface Logger {
 			Log.ASSERT
 	})
 	@Retention(RetentionPolicy.SOURCE)
-	@interface Level {
+	@SuppressWarnings("UnnecessaryInterfaceModifier")
+	public @interface Level {
 	}
 
 	/**
