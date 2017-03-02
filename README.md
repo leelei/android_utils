@@ -1,7 +1,7 @@
 Utils
 ===============
 
-[![Build Status](https://travis-ci.org/universum-studios/android_utils.svg?branch=develop)](https://travis-ci.org/universum-studios/android_utils)
+[![Build Status](https://travis-ci.org/universum-studios/android_utils.svg?branch=master)](https://travis-ci.org/universum-studios/android_utils)
 [![Codacy Badge](https://api.codacy.com/project/badge/Grade/2eee79dd3bdd42f5af758d1ac3e363be)](https://www.codacy.com/app/universum-studios/android_utils?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=universum-studios/android_utils&amp;utm_campaign=Badge_Grade)
 [![Codacy Badge](https://api.codacy.com/project/badge/Coverage/2eee79dd3bdd42f5af758d1ac3e363be)](https://www.codacy.com/app/universum-studios/android_utils?utm_source=github.com&utm_medium=referral&utm_content=universum-studios/android_utils&utm_campaign=Badge_Coverage)
 
