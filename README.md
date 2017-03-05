@@ -4,6 +4,7 @@ Utils
 [![Build Status](https://travis-ci.org/universum-studios/android_utils.svg?branch=master)](https://travis-ci.org/universum-studios/android_utils)
 [![Codacy Badge](https://api.codacy.com/project/badge/Grade/2eee79dd3bdd42f5af758d1ac3e363be)](https://www.codacy.com/app/universum-studios/android_utils?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=universum-studios/android_utils&amp;utm_campaign=Badge_Grade)
 [![Codacy Badge](https://api.codacy.com/project/badge/Coverage/2eee79dd3bdd42f5af758d1ac3e363be)](https://www.codacy.com/app/universum-studios/android_utils?utm_source=github.com&utm_medium=referral&utm_content=universum-studios/android_utils&utm_campaign=Badge_Coverage)
+[![Android Arsenal](https://img.shields.io/badge/Android%20Arsenal-Utils-green.svg?style=flat)](https://android-arsenal.com/details/1/5406)
 
 ## Download ##
 [![Bintray Badge](https://api.bintray.com/packages/universum-studios/android/universum.studios.android%3Autils/images/download.svg)](https://bintray.com/universum-studios/android/universum.studios.android%3Autils/_latestVersion)
